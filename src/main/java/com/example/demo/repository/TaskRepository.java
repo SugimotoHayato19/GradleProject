@@ -33,6 +33,15 @@ public class TaskRepository {
     public List<Task> findAll() {
         return taskMapper.findAll();
     }
+    
+    /**
+     * タスクを保存します。
+     *
+     * @param task 保存するタスク
+     */
+    public void save(Task task) {
+        taskMapper.save(task);
+    }
 
 }
 
