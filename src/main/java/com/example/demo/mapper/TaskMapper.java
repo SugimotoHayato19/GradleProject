@@ -18,6 +18,13 @@ public interface TaskMapper {
      * @return タスクのリスト
      */
     List<Task> findAll();
+
+    /**
+     * タスクを保存します。
+     *
+     * @param task
+     */
+    void save(Task task);
 }
 
 
