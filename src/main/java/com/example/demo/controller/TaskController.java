@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.entity.Task;
@@ -61,6 +62,24 @@ public class TaskController {
 	    model.addAttribute("taskForm", taskForm);
 	    return "task/edit";
 	}
+	
+	/**
+	 * タスクの変更画面を表示するメソッドです。
+	 * 
+	 * @param taskId タスクのID
+	 * @param model タスク一覧をViewに渡すためのSpringのModelオブジェクト
+	 * @return "task/edit" - タスク変更画面のHTMLテンプレートのパス
+	 */
+	@GetMapping(value = "/task/edit")
+	public String showEditForm(@RequestParam("taskId") int taskId,Model model) {
+		
+	    // タスクIDに基づいてタスクを取得
+		TaskForm taskForm = taskService.getTask(taskId);
+		
+		model.addAttribute("taskForm", taskForm);
+		return "task/edit";
+	}
+	
 	
 	/**
 	 * タスクの確認画面を表示するメソッドです。
@@ -119,6 +138,5 @@ public class TaskController {
         return "task/complete";
     }
 	
-	
-	
 }
+
