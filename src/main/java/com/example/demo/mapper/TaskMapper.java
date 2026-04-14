@@ -41,5 +41,13 @@ public interface TaskMapper {
      * @return 更新された行数
      */
     int update(Task task);
+    
+    /**
+     * タスクを削除します。
+     *
+     * @param task 削除するタスク
+     * @return 削除された行数
+     */
+    int delete(int taskId);
 }
 

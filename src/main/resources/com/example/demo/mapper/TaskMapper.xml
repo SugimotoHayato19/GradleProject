@@ -21,6 +21,11 @@
     <select id="getTask" resultType="com.example.demo.entity.Task">
         SELECT * FROM task where taskId = #{taskId} and deleteFlg = 0;
 	</select>
+	
+	   <!-- タスクの削除 -->
+   <delete id ="delete">
+	   DELETE FROM task where taskId = #{taskId} and deleteFlg = 0;
+   </delete>
    
       <!-- タスクの更新 -->
    <update id="update" parameterType="com.example.demo.entity.Task">
