@@ -34,6 +34,15 @@ public interface TaskService {
 	TaskForm getTask(int taskId);
 	
     /**
+     * タスクを削除します。
+     *
+     * @param taskForm タスクのフォームデータ
+     * @return 削除完了メッセージ
+     */
+	String delete(int taskId);
+	
+	
+    /**
      * タスクのフォームデータをタスクエンティティに変換します。
      *
      * @param taskForm タスクのフォームデータ

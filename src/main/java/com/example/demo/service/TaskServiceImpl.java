@@ -89,6 +89,27 @@ public class TaskServiceImpl implements TaskService{
 		return taskForm;
 	}
 	
+	/**
+	 * タスクを削除するメソッドです。
+	 *
+	 * @param task タスクエンティティ
+	 * @return String 完了メッセージ
+	 * @throws OptimisticLockingFailureException 楽観ロックエラーが発生した場合
+	 */
+	@Override
+	@Transactional
+	public String delete(int taskId) {
+		
+        
+        //削除処理
+      	taskRepository.delete(taskId);
+		
+		//完了メッセージをセット
+		String completeMessage = Constants.DELETE_COMPLETE;
+		return completeMessage;
+		
+	}
+	
 	
 	
 	/**
